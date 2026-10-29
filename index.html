@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="XIk7tIX_FwG4vnFUc0P90YHLaNFFITI_0frcdvynRbg" />
   <meta charset="UTF-8">
-  <title>Hub Backup — Automated Google Drive Backup Tool</title>
+  <title>Hub Backup</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
+  <meta name="google-site-verification" content="XIk7tIX_FwG4vnFUc0P90YHLaNFFITI_0frcdvynRbg" />  <style>
     body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 760px;
            margin: 60px auto; padding: 0 20px; color: #222; line-height: 1.6; }
-    h1 { font-size: 1.6em; margin-bottom: 0.2em; }
-    h2 { font-size: 1.15em; margin-top: 1.8em; }
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.2em; margin-top: 1.8em; border-bottom: 1px solid #eee; padding-bottom: 5px; }
     .muted { color: #666; font-size: 0.9em; }
     a { color: #1a73e8; }
   </style>
@@ -17,50 +16,33 @@
 <body>
 
 <h1>Hub Backup</h1>
-<p class="muted">An automated, self-hosted backup utility.</p>
+<p class="muted">An automated, self-hosted backup utility for personal servers.</p>
 
-<h2>What this application does</h2>
+<h2>Purpose of the Application</h2>
 <p>
-  Hub Backup is a private, self-hosted utility that runs on a single server and
-  automatically creates compressed backups of that server's databases, application
-  files, and configuration. It uploads those backups to a Google Drive folder that
-  the operator has explicitly authorized, so that the data can be restored in the
-  event of hardware failure, accidental deletion, or other data loss.
+  Hub Backup is a private, command-line utility designed for a single operator. Its sole purpose is to automatically create compressed, encrypted backups of a server's databases, application files, and configuration. It then securely uploads these backups to a Google Drive folder that the operator has explicitly authorized, ensuring data can be restored in the event of hardware failure or data loss.
 </p>
 
-<h2>How it works</h2>
+<h2>How It Works</h2>
 <ul>
-  <li>Runs on a schedule (via cron) on the operator's own server.</li>
-  <li>Creates a PostgreSQL dump, a tarball of application files, and a tarball of configuration.</li>
-  <li>Uploads the resulting files to a Google Drive folder via the Google Drive API.</li>
-  <li>Uses OAuth 2.0 so the operator grants access to their own Google account once.</li>
+  <li><strong>Automated Backups:</strong> The tool runs on a schedule (via cron) on the operator's own server.</li>
+  <li><strong>Data Collection:</strong> It creates a dump of a PostgreSQL database, a tarball of application source code, and a tarball of configuration files.</li>
+  <li><strong>Google Drive Integration:</strong> It uploads the resulting backup files to a designated folder in the operator's Google Drive using the Google Drive API. The application is not a web service; it is a script that runs locally on the server.</li>
 </ul>
 
-<h2>Who uses it</h2>
+<h2>Google API Compliance</h2>
 <p>
-  This application is used solely by its operator — a single individual managing
-  their own server infrastructure. It is not a public service, does not have user
-  accounts, and is not distributed to third parties.
+  This application uses the <code>drive.file</code> scope, which grants access only to files and folders it creates or that are specifically shared with it. It does not access any other data in the user's Google Drive. This application does not use Google APIs for the creation, generation, or distribution of AI-generated Non-Consensual Intimate Imagery (NCII) or any other prohibited content, in full compliance with the Google APIs Terms of Service.
 </p>
 
-<h2>Google Drive integration</h2>
+<h2>Privacy Policy</h2>
 <p>
-  Hub Backup requests only the <code>drive.file</code> scope, which limits access
-  to files and folders that the operator has explicitly created or shared with the
-  application. It does not read, modify, or delete any other files in the user's
-  Google Drive.
-</p>
-
-<h2>Privacy and terms</h2>
-<p>
-  See the <a href="privacy.html">Privacy Policy</a> for details on what data is
-  accessed and how it is stored.
+  For details on how data is accessed, used, and stored, please see our <a href="privacy.html">Privacy Policy</a>.
 </p>
 
 <hr>
 <p class="muted">
-  Hub Backup is an open, self-hosted tool. Contact:
-  <a href="mailto:YOUR_EMAIL@gmail.com">YOUR_EMAIL@gmail.com</a>.
+  Hub Backup is an open, self-hosted tool. Contact: <a href="mailto:YOUR_EMAIL@gmail.com">YOUR_EMAIL@gmail.com</a>.
 </p>
 
 </body>
