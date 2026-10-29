@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hub Backup — Automated Google Drive Backup Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 760px;
+           margin: 60px auto; padding: 0 20px; color: #222; line-height: 1.6; }
+    h1 { font-size: 1.6em; margin-bottom: 0.2em; }
+    h2 { font-size: 1.15em; margin-top: 1.8em; }
+    .muted { color: #666; font-size: 0.9em; }
+    a { color: #1a73e8; }
+  </style>
+</head>
+<body>
+
+<h1>Hub Backup</h1>
+<p class="muted">An automated, self-hosted backup utility.</p>
+
+<h2>What this application does</h2>
+<p>
+  Hub Backup is a private, self-hosted utility that runs on a single server and
+  automatically creates compressed backups of that server's databases, application
+  files, and configuration. It uploads those backups to a Google Drive folder that
+  the operator has explicitly authorized, so that the data can be restored in the
+  event of hardware failure, accidental deletion, or other data loss.
+</p>
+
+<h2>How it works</h2>
+<ul>
+  <li>Runs on a schedule (via cron) on the operator's own server.</li>
+  <li>Creates a PostgreSQL dump, a tarball of application files, and a tarball of configuration.</li>
+  <li>Uploads the resulting files to a Google Drive folder via the Google Drive API.</li>
+  <li>Uses OAuth 2.0 so the operator grants access to their own Google account once.</li>
+</ul>
+
+<h2>Who uses it</h2>
+<p>
+  This application is used solely by its operator — a single individual managing
+  their own server infrastructure. It is not a public service, does not have user
+  accounts, and is not distributed to third parties.
+</p>
+
+<h2>Google Drive integration</h2>
+<p>
+  Hub Backup requests only the <code>drive.file</code> scope, which limits access
+  to files and folders that the operator has explicitly created or shared with the
+  application. It does not read, modify, or delete any other files in the user's
+  Google Drive.
+</p>
+
+<h2>Privacy and terms</h2>
+<p>
+  See the <a href="privacy.html">Privacy Policy</a> for details on what data is
+  accessed and how it is stored.
+</p>
+
+<hr>
+<p class="muted">
+  Hub Backup is an open, self-hosted tool. Contact:
+  <a href="mailto:YOUR_EMAIL@gmail.com">YOUR_EMAIL@gmail.com</a>.
+</p>
+
+</body>
+</html>
